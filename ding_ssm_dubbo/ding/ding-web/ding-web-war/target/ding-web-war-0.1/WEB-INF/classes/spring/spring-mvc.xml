@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/mvc 
+            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+    
+    <import resource="classpath*:spring/ding-mgr-context.xml"/>
+    <import resource="classpath*:spring/ding-consumer-dubbo.xml"/>
+    <!-- 扫描controller（controller层注入） -->
+    <context:component-scan base-package="com.ding.web.home.**"/>
+
+    <!-- 启动注解支持 -->  
+    <mvc:annotation-driven />
+	
+	<context:property-placeholder location="classpath:config/config.properties" ignore-unresolvable="true"/>
+	
+	   <!-- freemarker的配置 -->
+    <bean id="freemarkerConfig"
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="file://${ding.freemarker.templates}" />
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">10</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd</prop><!-- 时间格式化 -->
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="number_format">#.##</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 视图配置 在list中按照配置的先后顺序 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="ignoreAcceptHeader" value="true" />
+        <property name="defaultContentType" value="text/html" />
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json" />
+                <entry key="xls" value="application/vnd.ms-excel" />
+                <entry key="xlsx" value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                <entry key="pdf" value="application/pdf" />
+            </map>
+        </property>
+        <property name="favorParameter" value="false" />
+        <property name="viewResolvers">
+            <list>
+                <!-- 配置freeMarker视图解析器 -->
+                <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                    <property name="cache" value="true" />
+                    <property name="prefix" value="/home/views/" /><!-- 上面已经配了，这里就不用配啦 -->
+                    <property name="suffix" value=".ftl" />
+                    <property name="contentType" value="text/html;charset=UTF-8" />
+                    <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+                    <property name="allowSessionOverride" value="true" />
+                    <property name="allowRequestOverride" value="true" />
+                    <property name="exposeSpringMacroHelpers" value="false" />
+                    <property name="exposeRequestAttributes" value="true" />
+                    <property name="exposeSessionAttributes" value="true" />
+                    <property name="requestContextAttribute" value="request" />
+                </bean>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+                    <property name="prefix" value="/WEB-INF/jsp/" />
+                    <property name="suffix" value=".jsp" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+	
+    <!-- 
+    	jsp 配置
+    
+    	静态资源
+    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+    <mvc:resources location="/WEB-INF/image/" mapping="/image/**"/>
+ -->
+    <!-- 视图解析器 
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>-->
+</beans>   

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:jee="http://www.springframework.org/schema/jee"  
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd  
+    http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd  
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd  
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd"  
+    default-lazy-init="false" >  
+
+	<dubbo:application name="ding-rpc"></dubbo:application>
+    <!-- 使用zookper暴露发现服务地址 register="false" 默认本地，不暴露 -->
+    <!-- <dubbo:registry address="${ding.rpc.dubbo.registry.address}"/>
+     -->
+    <dubbo:registry address="zookeeper://172.20.60.57:2181" check="false" subscribe="false" register=""></dubbo:registry>  
+    <!-- 用dubbo协议在指定端口暴露服务 -->
+ <!--    <dubbo:protocol name="dubbo" port="${ding.rpc.dubbo.application.port}"/> -->
+
+   	<!-- 使用dubbo自带监控 -->
+    <dubbo:monitor protocol="registry"/>
+    <bean id="demoService" class="com.ding.rpc.impl.demo.DemoServiceImpl"/>
+    <dubbo:service timeout="20000" loadbalance="random" actives="0"
+           interface="com.ding.rpc.share.demo.DemoService"  ref="demoService"/>
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.0.6.RELEASE</spring.version>
+    <mybatis.version>3.2.7</mybatis.version>
+    <mysql.version>5.1.29</mysql.version>
+    <freemarker.version>2.3.20</freemarker.version>
+  </properties>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ding</groupId>
+  <artifactId>ding</artifactId>
+  <version>0.1</version>
+  <packaging>pom</packaging>
+  <description>ding parent project</description>
+  <modules>
+    <module>ding-biz</module>
+    <module>ding-web</module>
+    <module>ding-rpc</module>
+  </modules>
+</project>
