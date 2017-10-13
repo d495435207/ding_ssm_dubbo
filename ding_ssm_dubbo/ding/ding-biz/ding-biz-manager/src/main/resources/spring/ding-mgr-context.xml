@@ -12,6 +12,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         
 	<import resource="classpath*:spring/biz-dao-mybatis.xml"/>
+	<import resource="classpath:spring/ding-mgr-cache.xml"/>
 	
 	<bean id="userManager" class="com.ding.biz.manager.user.impl.UserManagerImpl"></bean>        
 	<bean id="dubboManager" class="com.ding.biz.manager.user.impl.DubboManagerImpl"></bean>        

@@ -17,11 +17,15 @@
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     
+    <!-- 开启注解 -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	
+	
     <import resource="classpath*:spring/ding-mgr-context.xml"/>
     <import resource="classpath*:spring/ding-consumer-dubbo.xml"/>
     <!-- 扫描controller（controller层注入） -->
     <context:component-scan base-package="com.ding.web.home.**"/>
-
     <!-- 启动注解支持 -->  
     <mvc:annotation-driven />
 	
