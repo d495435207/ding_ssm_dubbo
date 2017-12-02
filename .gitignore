@@ -1,0 +1,3 @@
+/build/    #过滤整个build文件夹
+*.class    #过滤所有.class文件
+/.idea/libraries    #过滤具体文件
