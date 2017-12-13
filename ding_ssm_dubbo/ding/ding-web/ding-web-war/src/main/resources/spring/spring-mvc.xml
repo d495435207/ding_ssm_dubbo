@@ -23,8 +23,8 @@
 	
 	
     <import resource="classpath*:spring/ding-mgr-context.xml"/>
-    <import resource="classpath*:spring/ding-consumer-dubbo.xml"/>
-    <!-- 扫描controller（controller层注入） -->
+<!--     <import resource="classpath*:spring/ding-consumer-dubbo.xml"/>
+ -->    <!-- 扫描controller（controller层注入） -->
     <context:component-scan base-package="com.ding.web.home.**"/>
     <!-- 启动注解支持 -->  
     <mvc:annotation-driven />

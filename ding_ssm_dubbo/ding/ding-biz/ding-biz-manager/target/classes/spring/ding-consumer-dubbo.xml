@@ -13,7 +13,8 @@
     default-lazy-init="false" >  
 
   	<!-- 使用zookeeper注册中心暴露服务地址 -->    
-   	<dubbo:registry address="zookeeper://172.20.60.57:2181" check="false"></dubbo:registry>   
+   	<dubbo:registry address="zookeeper://120.27.48.18:2181" check="false"></dubbo:registry>   
+<!--    	<dubbo:registry address="zookeeper://172.20.60.57:2181" check="false"></dubbo:registry>    -->
   	
  	<dubbo:application name="ding_consumer_dubbo"></dubbo:application>  
      <!-- 要引用的服务 -->    

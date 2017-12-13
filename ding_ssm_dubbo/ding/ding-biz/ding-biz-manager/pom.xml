@@ -84,10 +84,10 @@
           <version>0.1</version>
       </dependency>
    		<!-- consumer端依赖包 -->
-      <dependency>
+ <!--      <dependency>
 		  <groupId>com.handsome</groupId>
 		  <artifactId>handsome-rpc-share</artifactId>
 		  <version>0.1</version>
-	  </dependency>
+	  </dependency> -->
   </dependencies>
 </project>

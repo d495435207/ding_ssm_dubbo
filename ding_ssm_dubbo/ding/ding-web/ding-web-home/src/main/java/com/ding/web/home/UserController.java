@@ -5,8 +5,6 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.handsome.rpc.share.test.TestService;
-import org.handsome.rpc.share.test.dto.TestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +24,6 @@ public class UserController
 {
 	@Autowired
 	private UserManager userManager;
-	/*@Autowired
-	private TestService testService;*/
 	private final Log logger = LogFactory.getLog(getClass());
 	
 	@GetCache(name="redis_user",value="userId")
@@ -45,11 +41,4 @@ public class UserController
     	 model.addAttribute("user", userDO);
     	return "user/user";
     }
-	/*@RequestMapping(value="/test")
-	public String test(Integer id,Model model){
-		logger.info("-----------test-dubbo-");
-		TestDTO testDTO = testService.get(id);
-		model.addAttribute("test", testDTO);
-		return "user/test";
-	}*/
 }
