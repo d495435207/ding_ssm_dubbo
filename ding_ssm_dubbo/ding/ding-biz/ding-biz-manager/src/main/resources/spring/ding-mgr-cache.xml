@@ -25,7 +25,11 @@
 	</bean>
 	
 	<bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-		<constructor-arg name="poolConfig" ref="poolConfig"/>
+		<property name="poolConfig" ref="poolConfig"/>
+		<property name="password" value="${redis.host.password}"/>
+		<property name="hostName" value="${redis.host.address}"/>
+		<property name="port" value="${redis.host.port}"/>
+		<property name="timeout" value="10000" />
 	</bean>
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
 		<property name="connectionFactory" ref="connectionFactory"></property>
