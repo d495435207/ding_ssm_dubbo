@@ -20,7 +20,7 @@ public class GetCacheAOP {
 
 	private RedisCache redisCache = new RedisCache();
 
-	@Pointcut(value = "execution(* com.ding.biz.manager.user.impl..*.get*(..))")
+	@Pointcut(value = "execution(* com.ding.biz.manager.user.impl.*.get*(..))")
 	public void getCache() {
 		System.out.println("---这里是一个切点");
 	}

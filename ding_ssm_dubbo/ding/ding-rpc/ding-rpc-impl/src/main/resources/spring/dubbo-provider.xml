@@ -16,7 +16,11 @@
     <!-- 使用zookper暴露发现服务地址 register="false" 默认本地，不暴露 -->
     <!-- <dubbo:registry address="${ding.rpc.dubbo.registry.address}"/>
      -->
-    <dubbo:registry address="zookeeper://172.20.60.57:2181" check="false" subscribe="false" register=""></dubbo:registry>  
+<!--     
+<dubbo:registry address="zookeeper://120.27.48.18:2181" check="false" subscribe="false" register=""></dubbo:registry>
+ -->        
+ <dubbo:registry address="zookeeper://172.20.60.57:2181" check="false" subscribe="false" register=""></dubbo:registry>  
+    
     <!-- 用dubbo协议在指定端口暴露服务 -->
  <!--    <dubbo:protocol name="dubbo" port="${ding.rpc.dubbo.application.port}"/> -->
 
