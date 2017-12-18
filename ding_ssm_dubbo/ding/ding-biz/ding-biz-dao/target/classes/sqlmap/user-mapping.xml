@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--CURD 映射配置-->
-<mapper namespace="com.ding.biz.dao.user.UserDAO">
-    <select id="get" parameterType="int" resultType="com.ding.biz.dao.user.data.UserDO">
-        select * from user where id=#{id}
-    </select>
-</mapper>
