@@ -19,8 +19,6 @@
     
     <!-- 启动注解支持 -->  
     <mvc:annotation-driven />
-    <!-- 开启注解 -->
-	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
 	
 	
