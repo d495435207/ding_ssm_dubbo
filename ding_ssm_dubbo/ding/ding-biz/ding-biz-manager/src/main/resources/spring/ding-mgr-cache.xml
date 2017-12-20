@@ -31,7 +31,7 @@
 		<property name="port" value="${redis.host.port}"/>
 		<property name="timeout" value="10000" />
 	</bean>
-	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+<!-- 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
 		<property name="connectionFactory" ref="connectionFactory"></property>
 		<property name="keySerializer">
 			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
@@ -39,10 +39,10 @@
 		<property name="valueSerializer">
 			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
 		</property>
-	</bean>
+	</bean> -->
 	
 	<bean id="getCache" class="com.ding.biz.cache.GetCacheAOP">
-		<property name="redisTemplate" ref="redisTemplate"/>
+		<!-- <property name="redisTemplate" ref="redisTemplate"/> -->
 	</bean>
 	
 	

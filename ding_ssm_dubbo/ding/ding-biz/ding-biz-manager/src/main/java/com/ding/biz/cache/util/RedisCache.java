@@ -34,11 +34,12 @@ public class RedisCache {
 	 * 设置数据到redis
 	 * @param redisKey
 	 * @param obj
+	 * @param expire 
 	 */
-	public void setDataToRedis(String redisKey,Object obj){
+	public void setDataToRedis(String redisKey,Object obj, int expire){
 		byte[] bytes = SerializeUtil.serialize(obj);
 		Jedis jedis = jedisPool.getResource();
-		String success = jedis.set(redisKey.getBytes(), bytes);
+		String success = jedis.setex(redisKey,expire, new String (bytes));
 		if("OK".equalsIgnoreCase(success)){
 			System.out.println("保存成功");
 		}

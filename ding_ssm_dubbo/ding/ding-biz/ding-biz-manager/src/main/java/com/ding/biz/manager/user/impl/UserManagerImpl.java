@@ -10,7 +10,7 @@ public class UserManagerImpl implements UserManager{
 	@Autowired
 	private UserDAO userDAO;
 	
-	@GetCache(name="#userId")
+	@GetCache(name="#userId" ,expire=300)
 	public UserDO get(Integer userId) {
 		UserDO userDO = userDAO.get(userId);
 		return userDO;

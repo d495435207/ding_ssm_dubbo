@@ -15,5 +15,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface GetCache {
 	String name() default "";
-	String value() default "";
+	//String value() default "";
+	int expire() default 60;
 }
