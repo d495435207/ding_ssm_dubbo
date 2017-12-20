@@ -1,6 +1,5 @@
 package com.ding.biz.cache;
 
-import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +14,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
+import com.ding.biz.cache.enums.CacheExpireTimeEnum;
 import com.ding.biz.cache.util.RedisCache;
 
 @Component
@@ -57,9 +57,10 @@ public class GetCacheAOP {
 		Map<String, Object> res =new HashMap<String, Object>();
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		Method method = signature.getMethod();
-		String actionName = method.getAnnotation(GetCache.class).name();
+		GetCache getCache = method.getAnnotation(GetCache.class);
+		String actionName = getCache.name();
 //		String fieldList = method.getAnnotation(GetCache.class).value();
-		Integer expire = method.getAnnotation(GetCache.class).expire();
+		CacheExpireTimeEnum expire = getCache.expire();
 
 		String id = null;
 		Object[] args = joinPoint.getArgs();
@@ -69,7 +70,7 @@ public class GetCacheAOP {
 		actionName += "=" + id;
 		String redisKey = signature + "." + actionName;
 		res.put("cacheKey", redisKey);
-		res.put("expire", expire);
+		res.put("expire", expire.getSec());
 		return res;
 	}
 

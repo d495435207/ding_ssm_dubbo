@@ -4,6 +4,8 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import com.ding.biz.cache.enums.CacheExpireTimeEnum;
 /** 
 * @ClassName: GetCache 
 * @Description: redis缓存自定义注解 
@@ -15,6 +17,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface GetCache {
 	String name() default "";
-	//String value() default "";
-	int expire() default 60;
+	CacheExpireTimeEnum expire() default CacheExpireTimeEnum.ONEMIN;
 }
