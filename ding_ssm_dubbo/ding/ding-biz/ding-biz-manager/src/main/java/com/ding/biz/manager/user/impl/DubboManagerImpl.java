@@ -12,6 +12,7 @@ public class DubboManagerImpl implements DubboManager{
 	@Autowired
 	private DubboDAO dubboDAO;
 	
+
 	@GetCache(name="id",expire=CacheExpireTimeEnum.ONEMIN)
 	public DubboDO get(Integer id) {
 		return dubboDAO.get(id);
