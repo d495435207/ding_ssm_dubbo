@@ -11,7 +11,7 @@ public class UserManagerImpl implements UserManager{
 	@Autowired
 	private UserDAO userDAO;
 	
-	@GetCache(name="#userId" ,expire=CacheExpireTimeEnum.TENMIN)
+	@GetCache(name="userId" ,expire=CacheExpireTimeEnum.ONEMIN)
 	public UserDO get(Integer userId) {
 		UserDO userDO = userDAO.get(userId);
 		return userDO;
