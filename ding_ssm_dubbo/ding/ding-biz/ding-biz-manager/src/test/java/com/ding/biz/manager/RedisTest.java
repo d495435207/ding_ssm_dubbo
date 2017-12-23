@@ -1,11 +1,14 @@
 package com.ding.biz.manager;
 
+import org.junit.Test;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisTest {
-	public static void main(String[] args) {
+	@Test
+	public  void test() {
 //		String host = "localhost";
 
 		String host = "98.142.137.4";

@@ -21,8 +21,7 @@ import com.ding.biz.cache.util.RedisCache;
 @Aspect
 public class GetCacheAOP {
 	private final Log logger = LogFactory.getLog(getClass());
-
-	private RedisCache redisCache = new RedisCache();
+	private RedisCache redisCache;
 
 	@Pointcut(value = "execution(* com.ding.biz.manager.user.impl.*.get*(..))")
 	public void getCache() {
@@ -73,5 +72,15 @@ public class GetCacheAOP {
 		res.put("expire", expire.getSec());
 		return res;
 	}
+
+	public RedisCache getRedisCache() {
+		return redisCache;
+	}
+
+	public void setRedisCache(RedisCache redisCache) {
+		this.redisCache = redisCache;
+	}
+	
+	
 
 }

@@ -1,7 +1,4 @@
 package com.ding.biz.cache.util;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -13,8 +10,7 @@ import redis.clients.jedis.JedisPool;
 *  
 */
 public class RedisCache {
-	@Autowired
-	private JedisPool jedisPool = new JedisPool();
+	private JedisPool jedisPool;
 	/**
 	 * 从redis缓存获取数据
 	 * @param redisKey
@@ -44,4 +40,12 @@ public class RedisCache {
 			System.out.println("保存成功");
 		}
 	}
+	public JedisPool getJedisPool() {
+		return jedisPool;
+	}
+	public void setJedisPool(JedisPool jedisPool) {
+		this.jedisPool = jedisPool;
+	}
+	
+	
 }

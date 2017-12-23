@@ -96,7 +96,11 @@
           <version>${jackson_ver}</version>
       </dependency>
       
-      
+      <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.12</version>
+		</dependency>
    		<!-- consumer端依赖包 -->
  <!--      <dependency>
 		  <groupId>com.handsome</groupId>

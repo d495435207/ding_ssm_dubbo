@@ -10,9 +10,7 @@
         http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-        
-        
-    <!-- jedis配置 -->
+		     <!-- jedis配置 -->
 	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<property name="maxIdle" value="100"></property>
 		<property name="maxWaitMillis" value="1000"></property>
@@ -22,30 +20,14 @@
 		<constructor-arg name="poolConfig" ref="poolConfig"/>
 		<constructor-arg name="host" value="${redis.host.address}"/>
 		<constructor-arg name="port" value="${redis.host.port}"/>
+		<constructor-arg name="timeout" value="10000"/>
+		<constructor-arg name="password" value="${redis.host.password}"/>
 	</bean>
-	
-	<bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-		<property name="poolConfig" ref="poolConfig"/>
-		<property name="password" value="${redis.host.password}"/>
-		<property name="hostName" value="${redis.host.address}"/>
-		<property name="port" value="${redis.host.port}"/>
-		<property name="timeout" value="10000" />
+	<bean id="redisCache" class="com.ding.biz.cache.util.RedisCache">
+		<property name="jedisPool" ref="jedisPool"/>
 	</bean>
-<!-- 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-		<property name="connectionFactory" ref="connectionFactory"></property>
-		<property name="keySerializer">
-			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
-		</property>
-		<property name="valueSerializer">
-			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
-		</property>
-	</bean> -->
 	
 	<bean id="getCache" class="com.ding.biz.cache.GetCacheAOP">
-		<!-- <property name="redisTemplate" ref="redisTemplate"/> -->
+		<property name="redisCache" ref="redisCache"/>
 	</bean>
-	
-	
-	
-	
 </beans>
