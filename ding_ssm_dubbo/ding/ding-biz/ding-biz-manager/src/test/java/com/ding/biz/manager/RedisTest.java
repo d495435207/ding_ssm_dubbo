@@ -1,24 +1,25 @@
 package com.ding.biz.manager;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
+import com.alibaba.fastjson.JSON;
+import com.ding.biz.cache.GetCacheAOP;
+import com.ding.biz.dao.user.data.UserDO;
+import com.ding.biz.manager.user.UserManager;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:/spring/ding-mgr-context.xml"})
 public class RedisTest {
+	@Autowired
+	private UserManager userManger;
 	@Test
-	public  void test() {
-//		String host = "localhost";
-
-		String host = "98.142.137.4";
-		JedisPoolConfig	poolconfig =new JedisPoolConfig();
-		JedisPool pool = new JedisPool(poolconfig,host,6379,10000,"123456");
-		Jedis jedis= pool.getResource();
-		
-		jedis.auth("123456");
-		
-		System.out.println(jedis.get("dinglh"));
+	public void test() {
+		UserDO userDO = userManger.get(2);
+		System.out.println(JSON.toJSONString(userDO));
 	}
 	
 	
