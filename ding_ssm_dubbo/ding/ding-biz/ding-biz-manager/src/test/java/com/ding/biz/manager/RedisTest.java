@@ -7,7 +7,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
-import com.ding.biz.cache.GetCacheAOP;
 import com.ding.biz.dao.user.data.UserDO;
 import com.ding.biz.manager.user.UserManager;
 
@@ -21,7 +20,5 @@ public class RedisTest {
 		UserDO userDO = userManger.get(2);
 		System.out.println(JSON.toJSONString(userDO));
 	}
-	
-	
 	
 }

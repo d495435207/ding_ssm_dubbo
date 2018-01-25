@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class UserDO implements Serializable{
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6121735005188850456L;
-	private Integer id;
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    private Integer id;
 	private String name;
 	private String password;
 	public Integer getId() {
