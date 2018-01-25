@@ -1,1 +1,5 @@
+
+2018-01-26 解决redis缓存对象后序列化出错问题
+  java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
+
 2017-12-19 完成自定义注解+spring aop 方式实现redis缓存
