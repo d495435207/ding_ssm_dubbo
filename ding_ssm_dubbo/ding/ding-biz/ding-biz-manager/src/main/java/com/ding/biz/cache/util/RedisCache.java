@@ -1,7 +1,4 @@
 package com.ding.biz.cache.util;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -13,8 +10,7 @@ import redis.clients.jedis.JedisPool;
 *  
 */
 public class RedisCache {
-	@Autowired
-	private JedisPool jedisPool = new JedisPool();
+	private JedisPool jedisPool;
 	/**
 	 * 从redis缓存获取数据
 	 * @param redisKey
@@ -22,7 +18,7 @@ public class RedisCache {
 	 */
 	public Object getDataFromRedis(String redisKey){
 		Jedis jedis = jedisPool.getResource();
-		byte[] result = jedis.get(redisKey.getBytes());
+		String result = jedis.get(redisKey);
 		
 		if(result ==null ){
 			return null;
@@ -34,13 +30,22 @@ public class RedisCache {
 	 * 设置数据到redis
 	 * @param redisKey
 	 * @param obj
+	 * @param expire 
 	 */
-	public void setDataToRedis(String redisKey,Object obj){
-		byte[] bytes = SerializeUtil.serialize(obj);
+	public void setDataToRedis(String redisKey,Object obj, int expire){
+		String bytes = SerializeUtil.serialize(obj);
 		Jedis jedis = jedisPool.getResource();
-		String success = jedis.set(redisKey.getBytes(), bytes);
+		String success = jedis.setex(redisKey,expire, new String (bytes));
 		if("OK".equalsIgnoreCase(success)){
 			System.out.println("保存成功");
 		}
 	}
+	public JedisPool getJedisPool() {
+		return jedisPool;
+	}
+	public void setJedisPool(JedisPool jedisPool) {
+		this.jedisPool = jedisPool;
+	}
+	
+	
 }
