@@ -18,7 +18,7 @@ public class RedisCache {
 	 */
 	public Object getDataFromRedis(String redisKey){
 		Jedis jedis = jedisPool.getResource();
-		byte[] result = jedis.get(redisKey.getBytes());
+		String result = jedis.get(redisKey);
 		
 		if(result ==null ){
 			return null;
@@ -33,7 +33,7 @@ public class RedisCache {
 	 * @param expire 
 	 */
 	public void setDataToRedis(String redisKey,Object obj, int expire){
-		byte[] bytes = SerializeUtil.serialize(obj);
+		String bytes = SerializeUtil.serialize(obj);
 		Jedis jedis = jedisPool.getResource();
 		String success = jedis.setex(redisKey,expire, new String (bytes));
 		if("OK".equalsIgnoreCase(success)){

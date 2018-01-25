@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Base64;
 
 import com.alibaba.fastjson.JSON;
 import com.ding.biz.dao.user.data.UserDO;
@@ -25,7 +26,7 @@ public class SerializeUtil {
      * @param obj
      * @return byte[]
      */
-    public static byte[] serialize(Object obj) {
+    public static String serialize(Object obj) {
         ObjectOutputStream oos = null;
         ByteArrayOutputStream baos = null;
 
@@ -34,7 +35,9 @@ public class SerializeUtil {
             oos = new ObjectOutputStream(baos);
             oos.writeObject(obj);
             byte[] byteArray = baos.toByteArray();
-            return byteArray;
+            String encodeToString = Base64.getEncoder().encodeToString(byteArray);
+            return encodeToString;
+//            return byteArray;
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -51,10 +54,12 @@ public class SerializeUtil {
      * @param bytes
      * @return
      */
-    public static Object unSerialize(byte[] bytes) {
+    public static Object unSerialize(String bytes) {
+        // TODO 序列化出错的问题一直没有解决
         ByteArrayInputStream bais = null;
+        byte[] decode = Base64.getDecoder().decode(bytes);
         try {
-            bais = new ByteArrayInputStream(bytes);
+            bais = new ByteArrayInputStream(decode);
             ObjectInputStream inputStream = new ObjectInputStream(bais);
             return inputStream.readObject();
         } catch (IOException e) {
@@ -70,7 +75,7 @@ public class SerializeUtil {
         user.setId(1);
         user.setName("dinglh");
         user.setPassword("dinglh_pass");
-        byte[] serialize = serialize(user);
+        String serialize = serialize(user);
         Object unSerialize = unSerialize(serialize);
         System.out.println(JSON.toJSONString(unSerialize));
     }
