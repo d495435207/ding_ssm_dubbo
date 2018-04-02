@@ -1,4 +1,6 @@
 package com.ding.biz.cache.util;
+import com.ding.biz.utils.SerializeUtil;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -33,7 +35,7 @@ public class RedisCache {
 	 * @param expire 
 	 */
 	public void setDataToRedis(String redisKey,Object obj, int expire){
-		String bytes = SerializeUtil.serialize(obj);
+		String bytes = SerializeUtil.serializeForCache(obj);
 		Jedis jedis = jedisPool.getResource();
 		String success = jedis.setex(redisKey,expire, new String (bytes));
 		if("OK".equalsIgnoreCase(success)){

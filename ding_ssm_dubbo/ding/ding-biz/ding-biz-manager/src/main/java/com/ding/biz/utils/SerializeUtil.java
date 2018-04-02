@@ -1,4 +1,4 @@
-package com.ding.biz.cache.util;
+package com.ding.biz.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Base64;
-
-import com.ding.biz.utils.LoggerUtils;
 
 import net.sf.json.JSONObject;
 
