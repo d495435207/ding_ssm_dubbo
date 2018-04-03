@@ -3,23 +3,14 @@ package com.ding.biz.utils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
- * Log输出封装
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
- *
- * @author zhou-baicheng
- * @email  so@sojson.com
- * @version 1.0,2016年6月2日 <br/>
- * 
+* <p>Title: LoggerUtils.java</p>  
+* <p>package: com.ding.biz.utils</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 public class LoggerUtils {
 	/**

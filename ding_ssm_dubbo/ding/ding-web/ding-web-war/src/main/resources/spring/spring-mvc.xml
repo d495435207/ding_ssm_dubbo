@@ -6,6 +6,7 @@
     xmlns:aop="http://www.springframework.org/schema/aop" 
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
             http://www.springframework.org/schema/mvc 
@@ -14,6 +15,8 @@
            http://www.springframework.org/schema/context/spring-context-4.0.xsd
            http://www.springframework.org/schema/aop 
            http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+           http://www.springframework.org/schema/util
+		   http://www.springframework.org/schema/util/spring-util-3.2.xsd
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     
@@ -29,9 +32,22 @@
 	
 	<context:property-placeholder location="classpath:config/config.properties" ignore-unresolvable="true"/>
 	
+	
+		<!-- <context:component-scan base-package="com.dinglh.*.*.tag;com.ding.*.tag" /> -->
+	
+	
+	<!-- 常用Host配置 -->
+    <util:map id="viewAttributeConstants">
+        <entry key="basePath" value="http://localhost:8080"/>
+    </util:map>
+	
+	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+	<bean id="api" class="com.ding.web.freemarker.tags.APITemplateModel"/>
+	
+	
 	   <!-- freemarker的配置 -->
     <bean id="freemarkerConfig"
-        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        class="com.ding.web.freemarker.extend.FreeMarkerConfigExtend">
         <property name="templateLoaderPath" value="file://${ding.freemarker.templates}" />
         <property name="defaultEncoding" value="utf-8" />
         <property name="freemarkerSettings">
@@ -41,10 +57,22 @@
                 <prop key="datetime_format">yyyy-MM-dd</prop><!-- 时间格式化 -->
                 <prop key="date_format">yyyy-MM-dd</prop>
                 <prop key="number_format">#.##</prop>
+					<!-- 自动装载，引入Freemarker，用于Freemarker Macro引入 
+					-->
+				<prop key="auto_import">
+					/home/views/ftl/common/config/top.ftl as _top,/home/views/ftl/common/config/left.ftl as _left
+				</prop>
             </props>
         </property>
-    </bean>
+        <property name="freemarkerVariables">
+			<map>
+				<entry key="xml_escape" value-ref="fmXmlEscape" />
+				<entry key="api" value-ref="api"/>
+			</map>
+		</property>
 
+    </bean>
+	
     <!-- 视图配置 在list中按照配置的先后顺序 -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="ignoreAcceptHeader" value="true" />
@@ -63,30 +91,34 @@
                 <!-- 配置freeMarker视图解析器 -->
                 <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
                     <property name="cache" value="true" />
-                    <property name="prefix" value="/home/views/" /><!-- 上面已经配了，这里就不用配啦 -->
+                    <property name="prefix" value="/home/views/ftl/" /><!-- 上面已经配了，这里就不用配啦 -->
                     <property name="suffix" value=".ftl" />
                     <property name="contentType" value="text/html;charset=UTF-8" />
-                    <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+				   <property name="viewClass" value="com.ding.web.freemarker.extend.FreeMarkerViewExtend" />
                     <property name="allowSessionOverride" value="true" />
                     <property name="allowRequestOverride" value="true" />
                     <property name="exposeSpringMacroHelpers" value="false" />
                     <property name="exposeRequestAttributes" value="true" />
                     <property name="exposeSessionAttributes" value="true" />
                     <property name="requestContextAttribute" value="request" />
+                    <property name="attributesMap" ref="viewAttributeConstants"/>
                 </bean>
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-                    <property name="prefix" value="/WEB-INF/jsp/" />
+                    <property name="prefix" value="file://${ding.freemarker.templates}/home/views/jsp/" />
                     <property name="suffix" value=".jsp" />
                 </bean>
             </list>
         </property>
     </bean>
 	
-    <!-- jsp 配置静态资源-->    
-    <mvc:resources location="/WEB-INF/static/js/" mapping="/static/bui/js/**"/>
-    <mvc:resources location="/WEB-INF/static/css/" mapping="/static/bui/css/**"/>
-    <mvc:resources location="/WEB-INF/static/image/" mapping="/static/bui/image/**"/>
+    <!-- jsp 配置静态资源 将静态资源以链接的形式提供给web访问.
+    	http://localhost:8080/js/common/jquery/jquery1.8.3.min.js
+    	映射到
+    		/WEB-INF/static/js/common/jquery/jquery1.8.3.min.js
+    -->    
+    <mvc:resources location="/WEB-INF/static/js/" mapping="/js/**"/>
+    <mvc:resources location="/WEB-INF/static/css/" mapping="/css/**"/>
 
     <!-- 视图解析器 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

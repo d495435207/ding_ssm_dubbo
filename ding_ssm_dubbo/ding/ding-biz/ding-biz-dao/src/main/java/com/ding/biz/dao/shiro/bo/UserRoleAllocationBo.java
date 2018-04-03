@@ -5,8 +5,14 @@ import java.io.Serializable;
 import com.ding.biz.dao.shiro.data.UUser;
 /**
  * 用户角色分配 查询列表BO
- * @author zhou-baicheng
- *
+* <p>Title: UserRoleAllocationBo.java</p>  
+* <p>package: com.ding.biz.dao.shiro.bo</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月2日  
+* @version 1.0
  */
 public class UserRoleAllocationBo extends UUser implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -21,26 +21,15 @@ import com.ding.web.common.controller.BaseController;
 import com.ding.web.util.UserUtils;
 
 import net.sf.json.JSONObject;
-
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
- * 用户管理
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
- * 
+* <p>Title: UserCoreController.java</p>  
+* <p>package: com.ding.web.home.shiro</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 @Controller
 @Scope(value="prototype")

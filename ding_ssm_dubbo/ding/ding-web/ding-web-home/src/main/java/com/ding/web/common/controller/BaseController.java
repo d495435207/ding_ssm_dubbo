@@ -16,26 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ding.biz.utils.StringUtils;
-
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
- * 
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
- * 
+* <p>Title: BaseController.java</p>  
+* <p>package: com.ding.web.common.controller</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 public class BaseController {
 

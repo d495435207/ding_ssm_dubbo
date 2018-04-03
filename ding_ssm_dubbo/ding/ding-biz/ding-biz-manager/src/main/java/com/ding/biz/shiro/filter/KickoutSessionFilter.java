@@ -23,23 +23,14 @@ import com.ding.biz.utils.LoggerUtils;
 
 import net.sf.json.JSONObject;
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
- * 相同帐号登录控制
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
- *
- * @author zhou-baicheng
- * @email  so@sojson.com
- * @version 1.0,2016年6月2日 <br/>
- * 
+* <p>Title: KickoutSessionFilter.java</p>  
+* <p>package: com.ding.biz.shiro.filter</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 @SuppressWarnings({"unchecked","static-access"})
 public class KickoutSessionFilter extends AccessControlFilter {

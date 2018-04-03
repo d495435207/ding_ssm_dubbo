@@ -11,9 +11,15 @@ import com.ding.biz.shiro.session.ShiroSessionRepository;
 import com.ding.biz.utils.LoggerUtils;
 import com.ding.biz.utils.SerializeUtil;
 /**
- * Session 管理
- * @author sojson.com
- *
+* <p>Title: JedisShiroSessionRepository.java</p>  
+* <p>package: com.ding.biz.shiro.cache</p>  
+* <p>Description: </p>  
+* Session 管理
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 @SuppressWarnings("unchecked")
 public class JedisShiroSessionRepository implements ShiroSessionRepository {

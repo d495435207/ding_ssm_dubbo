@@ -5,7 +5,16 @@ import java.io.Serializable;
 import org.apache.commons.lang.StringUtils;
 
 import com.ding.biz.dao.shiro.data.URole;
-
+/**
+* <p>Title: URoleBo.java</p>  
+* <p>package: com.ding.biz.dao.shiro.bo</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月2日  
+* @version 1.0
+ */
 public class URoleBo extends URole implements Serializable{
 	private static final long serialVersionUID = 1L;
 	/**

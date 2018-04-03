@@ -5,9 +5,14 @@ import java.util.Date;
 
 import com.ding.biz.dao.shiro.data.UUser;
 /**
- * Session  + User Bo
- * @author sojson.com
- *
+* <p>Title: UserOnlineBo.java</p>  
+* <p>package: com.ding.biz.dao.shiro.bo</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月2日  
+* @version 1.0
  */
 public class UserOnlineBo extends UUser implements Serializable {
 

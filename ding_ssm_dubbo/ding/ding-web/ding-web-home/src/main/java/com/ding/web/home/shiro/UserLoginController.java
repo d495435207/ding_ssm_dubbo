@@ -27,26 +27,15 @@ import com.ding.web.common.controller.BaseController;
 import com.ding.web.util.UserUtils;
 
 import net.sf.json.JSONObject;
-
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
- * 用户登录相关，不需要做登录限制
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
- * 
+* <p>Title: UserLoginController.java</p>  
+* <p>package: com.ding.web.home.shiro</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 @Controller
 @Scope(value="prototype")
@@ -117,10 +106,11 @@ public class UserLoginController extends BaseController {
 	 * @param rememberMe	是否记住
 	 * @param request		request，用来取登录之前Url地址，用来登录后跳转到没有登录之前的页面。
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="submitLogin",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> submitLogin(UUser entity,Boolean rememberMe,HttpServletRequest request){
+	public Map<String,Object> submitLogin(UUser entity,Boolean rememberMe,HttpServletRequest request) throws Exception{
 		
 		try {
 			entity = TokenManager.login(entity,rememberMe);
@@ -155,8 +145,10 @@ public class UserLoginController extends BaseController {
 			resultMap.put("status", 500);
 			resultMap.put("message", "帐号已经禁用。");
 		} catch (Exception e) {
+		
 			resultMap.put("status", 500);
 			resultMap.put("message", "帐号或密码错误");
+			throw e;
 		}
 			
 		return resultMap;

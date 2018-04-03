@@ -21,5 +21,10 @@
 		<artifactId>ding-biz-manager</artifactId>
 		<version>${project.version}</version>
     </dependency>
+    <dependency>
+		<groupId>net.mingsoft</groupId>
+		<artifactId>shiro-freemarker-tags</artifactId>
+		<version>0.1</version>
+    </dependency>
   </dependencies>
 </project>

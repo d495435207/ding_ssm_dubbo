@@ -8,24 +8,14 @@ import org.apache.shiro.util.Destroyable;
 import com.ding.biz.shiro.cache.ShiroCacheManager;
 
 /**
- * 
- * 开发公司：sojson.com<br/>
- * 版权：sojson.com<br/>
- * <p>
- * 
- * shiro Custom Cache
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年4月29日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  json@sojson.com
- * @version 1.0,2016年4月29日 <br/>
- * 
+* <p>Title: CustomShiroCacheManager.java</p>  
+* <p>package: com.ding.biz.shiro.cache.impl</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 public class CustomShiroCacheManager implements CacheManager, Destroyable {
 

@@ -20,24 +20,14 @@ import com.ding.biz.mybatis.page.Pagination;
 import com.ding.biz.shiro.session.CustomSessionManager;
 import com.ding.web.common.controller.BaseController;
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
- * 用户会员管理
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月26日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月26日 <br/>
- * 
+* <p>Title: MemberController.java</p>  
+* <p>package: com.ding.web.home.shiro</p>  
+* <p>Description: </p>  
+* <p>Copyright: Copyright (c) 2018</p>  
+* <p>Company: www.dinglh.com</p>  
+* @author dinglh  
+* @date 2018年4月3日  
+* @version 1.0
  */
 @Controller
 @Scope(value="prototype")
