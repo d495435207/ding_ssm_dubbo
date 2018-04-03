@@ -1,8 +1,10 @@
-package com.ding.biz.shiro.service.impl;
+package com.ding.biz.manager.shiro.impl;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.Resource;
 
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager;
@@ -12,23 +14,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 
 import com.ding.biz.config.INI4j;
-import com.ding.biz.shiro.service.ShiroManager;
+import com.ding.biz.manager.shiro.ShiroManager;
 import com.ding.biz.utils.LoggerUtils;
 /**
-* <p>Title: ShiroManagerImpl.java</p>  
-* <p>package: com.ding.biz.shiro.service.impl</p>  
-* <p>Description: </p>  
-* <p>Copyright: Copyright (c) 2018</p>  
-* <p>Company: www.dinglh.com</p>  
-* @author dinglh  
-* @date 2018年4月3日  
-* @version 1.0
+ * 
+ * 开发公司：SOJSON在线工具 <p>
+ * 版权所有：© www.sojson.com<p>
+ * 博客地址：http://www.sojson.com/blog/  <p>
+ * <p>
+ * 
+ * 动态加载权限 Service
+ * 
+ * <p>
+ * 
+ * 区分　责任人　日期　　　　说明<br/>
+ * 创建　周柏成　2016年6月2日 　<br/>
+ *
+ * @author zhou-baicheng
+ * @email  so@sojson.com
+ * @version 1.0,2016年6月2日 <br/>
+ * 
  */
 public class ShiroManagerImpl implements ShiroManager {
 	
 	// 注意/r/n前不能有空格
 	private static final String CRLF = "\r\n";
 
+	@Resource
 	@Autowired
 	private ShiroFilterFactoryBean shiroFilterFactoryBean;
 

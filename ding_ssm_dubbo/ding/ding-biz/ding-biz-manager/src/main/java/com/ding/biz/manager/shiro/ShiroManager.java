@@ -1,4 +1,4 @@
-package com.ding.biz.shiro.service;
+package com.ding.biz.manager.shiro;
 
 public interface ShiroManager {
 

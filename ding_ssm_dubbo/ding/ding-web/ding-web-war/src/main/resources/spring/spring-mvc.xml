@@ -105,7 +105,7 @@
                 </bean>
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-                    <property name="prefix" value="file://${ding.freemarker.templates}/home/views/jsp/" />
+                    <property name="prefix" value="/jsp/" />
                     <property name="suffix" value=".jsp" />
                 </bean>
             </list>

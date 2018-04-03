@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ding.biz.dao.shiro.data.UUser;
 import com.ding.biz.manager.shiro.UUserService;
-import com.ding.biz.manager.user.UserManager;
 import com.ding.biz.shiro.token.manager.TokenManager;
 import com.ding.biz.utils.LoggerUtils;
 import com.ding.biz.utils.StringUtils;
