@@ -14,6 +14,5 @@
     <module>ding-web-deploy</module>
     <module>ding-web-home</module>
   	<module>ding-web-war</module>
-    <module>ding-web-base</module>
   </modules>
 </project>

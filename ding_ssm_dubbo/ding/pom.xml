@@ -19,5 +19,6 @@
     <module>ding-biz</module>
     <module>ding-web</module>
     <module>ding-rpc</module>
+    <module>ding-base</module>
   </modules>
 </project>
