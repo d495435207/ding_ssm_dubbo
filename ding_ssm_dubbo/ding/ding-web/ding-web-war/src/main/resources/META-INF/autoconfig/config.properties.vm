@@ -1,0 +1,3 @@
+ding.freemarker.templates=${ding_freemarker_templates}     
+com.ding.loggingRoot=${com_ding_loggingRoot}
+com.ding.loggingLevel=${com_ding_loggingLevel}     

@@ -1,0 +1,5 @@
+dubbo.host.address=${dubbo_host_address}
+redis.host.address=${redis_host_address}
+redis.host.port=${redis_host_port}
+redis.host.password=${redis_host_password}
+redis.host.timeout=${redis_host_timeout}
