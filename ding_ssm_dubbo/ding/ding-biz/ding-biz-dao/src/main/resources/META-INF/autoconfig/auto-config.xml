@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config description="自动配置：ding-biz-dao">
+    <group name="ding-biz-dao">
+        <property name="jdbc.url" defaultValue="replace jdbc:mysql://98.142.137.4:3306/dinglh?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true"
+                  description="数据库连接"/>
+        <property name="jdbc.username" defaultValue="replaceroot"
+                  description="数据库用户名"/>
+        <property name="jdbc.password" defaultValue="replacedinglh"
+                  description="密码"/>
+    </group>
+    <script>
+        <generate template="jdbc.properties.vm" destfile="/config/jdbc.properties" charset="UTF-8"/>
+    </script>
+</config>
