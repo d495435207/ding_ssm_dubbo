@@ -20,7 +20,7 @@
 		<constructor-arg name="poolConfig" ref="poolConfig"/>
 		<constructor-arg name="host" value="${redis.host.address}"/>
 		<constructor-arg name="port" value="${redis.host.port}"/>
-		<constructor-arg name="database" value="1"/>
+		<constructor-arg name="database" value="${redis.host.database}"/>
 		<constructor-arg name="timeout" value="10000"/>
 		<constructor-arg name="password" value="${redis.host.password}"/>
 	</bean>

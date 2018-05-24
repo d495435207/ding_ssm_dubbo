@@ -3,3 +3,4 @@ redis.host.address=${redis_host_address}
 redis.host.port=${redis_host_port}
 redis.host.password=${redis_host_password}
 redis.host.timeout=${redis_host_timeout}
+redis.host.database=${redis_host_database}

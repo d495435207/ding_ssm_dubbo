@@ -11,6 +11,8 @@
                   description="redis认证"/>
         <property name="redis.host.timeout" defaultValue="replace10000"
                   description="redis超时时间"/>
+        <property name="redis.host.database" defaultValue="1"
+                  description="redis数据库index"/>
     </group>
     <script>
         <generate template="biz-manager.properties.vm" destfile="/config/biz-manager.properties" charset="UTF-8"/>
