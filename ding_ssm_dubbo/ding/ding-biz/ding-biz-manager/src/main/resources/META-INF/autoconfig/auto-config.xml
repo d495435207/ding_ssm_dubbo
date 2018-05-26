@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config description="自动配置：ding-biz-manager">
+    <group name="ding-biz-manager">
+        <property name="dubbo.host.address" defaultValue="replacezookeeper://172.20.60.57:2181"
+                  description="zookeeper地址"/>
+        <property name="redis.host.address" defaultValue="replace98.142.137.4"
+                  description="redis服务器地址"/>
+        <property name="redis.host.port" defaultValue="replace6379"
+                  description="redis端口"/>
+        <property name="redis.host.password" defaultValue="replace123456"
+                  description="redis认证"/>
+        <property name="redis.host.timeout" defaultValue="replace10000"
+                  description="redis超时时间"/>
+        <property name="redis.host.database" defaultValue="1"
+                  description="redis数据库index"/>
+    </group>
+    <script>
+        <generate template="biz-manager.properties.vm" destfile="/config/biz-manager.properties" charset="UTF-8"/>
+    </script>
+</config>

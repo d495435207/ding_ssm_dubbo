@@ -7,6 +7,7 @@
     <mysql.version>5.1.29</mysql.version>
     <freemarker.version>2.3.20</freemarker.version>
      <jackson_ver>1.9.7</jackson_ver>
+     <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
   </properties>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ding</groupId>

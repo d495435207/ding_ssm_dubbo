@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config description="自动配置：ding-web-war">
+    <group name="ding-web-war">
+        <property name="ding.freemarker.templates" defaultValue="replace/Users/dinglh/java/git-project/ding_ssm_dubbo/ding_ssm_dubbo/ding/ding-web/ding-web-deploy/templates"
+                  description="ftl模板地址"/>
+        <property name="com.ding.loggingRoot" defaultValue="replace/Users/dinglh/java/tempfile/logs/ding"
+                  description="日志位置"/>
+        <property name="com.ding.loggingLevel" defaultValue="replaceinfo"
+                  description="日志级别"/>
+    </group>
+    <script>
+	<!--destfile 指定替换后properties的输出位置文件的位置 -->    																						
+        <generate template="config.properties.vm" destfile="/WEB-INF/classes/config/config.properties" charset="UTF-8"/>
+    </script>
+</config>
