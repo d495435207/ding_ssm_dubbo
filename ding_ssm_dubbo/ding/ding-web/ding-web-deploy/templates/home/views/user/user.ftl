@@ -5,7 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	user.ftl文件 </br>
+	user.ftl文件 模板的修改生效了吗
+	</br>
 	username =${user.name}</br>
 	user = ${user.password}</br>
 </body>
